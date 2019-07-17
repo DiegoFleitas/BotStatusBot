@@ -6,7 +6,7 @@
  * Time: 3:11 PM
  */
 
-namespace FakepostBot;
+namespace BotPostBot;
 
 require_once __DIR__ . '\DataLogger.php';
 require_once 'MixBot.php';
@@ -109,7 +109,7 @@ class MimickBot extends DataLogger
             case 'StyletransferBot9683':
                 $link = 'https://www.facebook.com/Styletransferbot9683-2169855356565545/';
 
-                $IMAGE_PATH_NEW = 'C:\Users\Diego\PhpstormProjects\FakePostBot\src\resources\newBot\styletransferbot9683.png';
+                $IMAGE_PATH_NEW = 'C:\Users\Diego\PhpstormProjects\BotPostBot\src\resources\newBot\styletransferbot9683.png';
 
                 // Get two images (has own pool, i'll use SPB)
                 // request to DeepAI API
@@ -139,7 +139,7 @@ class MimickBot extends DataLogger
             case 'ArtPostBot 1519':
                 $link = 'https://www.facebook.com/ArtpostBot/';
 
-                $IMAGE_PATH_NEW = 'C:\Users\Diego\PhpstormProjects\FakePostBot\src\resources\newBot\artpostbot_1519.png';
+                $IMAGE_PATH_NEW = 'C:\Users\Diego\PhpstormProjects\BotPostBot\src\resources\newBot\artpostbot_1519.png';
 
                 // request to WikiArt API
                 $ImgFetcher = new ImageFetcher();
@@ -167,9 +167,9 @@ class MimickBot extends DataLogger
 
                 $ImgFetcher = new ImageFetcher();
 
-                $IMAGE_PATH_NEW = 'C:\Users\Diego\PhpstormProjects\FakePostBot\src\resources\newBot\mirrored.png';
+                $IMAGE_PATH_NEW = 'C:\Users\Diego\PhpstormProjects\BotPostBot\src\resources\newBot\mirrored.png';
                 if (empty($source)) {
-                    // $IMAGE_PATH_NEW = 'C:\Users\Diego\PhpstormProjects\FakePostBot\src\resources\newBot\botob_8008.png';
+                    // $IMAGE_PATH_NEW = 'C:\Users\Diego\PhpstormProjects\BotPostBot\src\resources\newBot\botob_8008.png';
 
                     // request random source from SPB
                     $true_url = 'https://www.shitpostbot.com/'.$ImgFetcher->randomSourceSPB();
@@ -186,7 +186,7 @@ class MimickBot extends DataLogger
                     /** @var \Intervention\Image\Image $img */
                     $img = Image::make($source);
                     // apply filter
-                    $img->filter(new \FakepostBot\MirrorFilter($IMAGE_PATH_NEW, true));
+                    $img->filter(new \BotPostBot\MirrorFilter($IMAGE_PATH_NEW, true));
                     $img->destroy();
                 }
 
@@ -194,9 +194,9 @@ class MimickBot extends DataLogger
             case 'US Election Bot 1776':
                 $link = 'https://www.facebook.com/USElectionBot1776/';
 
-                $IMAGE_PATH_NEW = 'C:\Users\Diego\PhpstormProjects\FakePostBot\src\resources\newBot\election.png';
+                $IMAGE_PATH_NEW = 'C:\Users\Diego\PhpstormProjects\BotPostBot\src\resources\newBot\election.png';
                 if (empty($source)) {
-                    $path = 'C:\Users\Diego\PhpstormProjects\FakePostBot\src\resources\newBot\template.png';
+                    $path = 'C:\Users\Diego\PhpstormProjects\BotPostBot\src\resources\newBot\template.png';
 
                     $res = $this->USElection();
                     $title = $res['text'];
@@ -205,7 +205,7 @@ class MimickBot extends DataLogger
                     /** @var \Intervention\Image\Image $img */
                     $img = Image::make($path);
                     // apply filter
-                    $img->filter(new \FakepostBot\UsBotFilter($IMAGE_PATH_NEW, $res));
+                    $img->filter(new \BotPostBot\UsBotFilter($IMAGE_PATH_NEW, $res));
                     $img->destroy();
 
                     $isSuccess = true;
@@ -219,7 +219,7 @@ class MimickBot extends DataLogger
                 $link = 'https://www.facebook.com/InspiroBotQuotesIGot/';
 
                 // request random source from InspiroBot API
-                $IMAGE_PATH_NEW = 'C:\Users\Diego\PhpstormProjects\FakePostBot\src\resources\newBot\inspirobot_quotes.png';
+                $IMAGE_PATH_NEW = 'C:\Users\Diego\PhpstormProjects\BotPostBot\src\resources\newBot\inspirobot_quotes.png';
 
                 $ImgFetcher = new ImageFetcher();
                 $true_url = $ImgFetcher->randomSourceInspiroBot();
@@ -234,7 +234,7 @@ class MimickBot extends DataLogger
             case 'CensorBot 1111':
                 $link = 'https://www.facebook.com/CensorBot-1111-227202038206959/';
 
-                $IMAGE_PATH_NEW = 'C:\Users\Diego\PhpstormProjects\FakePostBot\src\resources\newBot\censored.png';
+                $IMAGE_PATH_NEW = 'C:\Users\Diego\PhpstormProjects\BotPostBot\src\resources\newBot\censored.png';
                 if (empty($source)) {
                     // request random source from SPB
                     $ImgFetcher = new ImageFetcher();
@@ -253,7 +253,7 @@ class MimickBot extends DataLogger
                     $img = Image::make($source);
 
                     // apply filter
-                    $img->filter(new \FakepostBot\CensorFilter($IMAGE_PATH_NEW));
+                    $img->filter(new \BotPostBot\CensorFilter($IMAGE_PATH_NEW));
                     $img->destroy();
                 }
 
@@ -339,7 +339,7 @@ class MimickBot extends DataLogger
                             $this->logdata($message, 1);
                         }
 
-                        $path = 'C:\Users\Diego\PhpstormProjects\FakePostBot\src\debug\test\mixing\\';
+                        $path = 'C:\Users\Diego\PhpstormProjects\BotPostBot\src\debug\test\mixing\\';
                         $name = date("Y-m-d H_i_s").'['.$res['strategy'].']'.$res['method'].'.jpg';
                         $new_name = str_replace(" ", "_", strtolower($path.$name));
 

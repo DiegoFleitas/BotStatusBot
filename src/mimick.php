@@ -15,5 +15,5 @@ require_once 'resources/secrets.php';
 //$bot = 'CensorBot 1111';
 //$bot = 'ArtPostBot 1519';
 $bot = 'StyletransferBot9683';
-$MimickBot = new \FakepostBot\MimickBot();
+$MimickBot = new \BotPostBot\MimickBot();
 $MimickBot->mimick($bot);

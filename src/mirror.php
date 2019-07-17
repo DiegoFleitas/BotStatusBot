@@ -14,5 +14,5 @@ $option = '2';
 //Width 501px height 670px
 $image_path = 'resources/newBot/image'.$option.'.png';
 
-$ImgTrans = new FakepostBot\ImageTransformer();
+$ImgTrans = new BotPostBot\ImageTransformer();
 $ImgTrans->mirrorImage($image_path, false);

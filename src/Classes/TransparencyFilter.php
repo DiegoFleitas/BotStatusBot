@@ -6,7 +6,7 @@
  * Time: 5:03 PM
  */
 
-namespace FakepostBot;
+namespace BotPostBot;
 
 use Intervention\Image\ImageManagerStatic as Image;
 

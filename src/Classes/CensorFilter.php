@@ -6,7 +6,7 @@
  * Time: 5:03 PM
  */
 
-namespace FakepostBot;
+namespace BotPostBot;
 
 class CensorFilter implements \Intervention\Image\Filters\FilterInterface
 {

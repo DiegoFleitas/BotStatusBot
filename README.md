@@ -1,9 +1,8 @@
-# FakePostBot
+# BotPostBot
 Facebook Bot using SDK v5 for PHP
 
 ## How it works
 
-It's a fork of DeviantBot
 
 ### Built With
 
@@ -13,7 +12,7 @@ It's a fork of DeviantBot
 
 ### Contributing
 
-Hit me up at the [page's facebook](https://www.facebook.com/imposterbot/) 
+Hit me up at the [page's facebook](https://www.facebook.com/botstatusbot/) 
 
 ## Acknowledgments
 

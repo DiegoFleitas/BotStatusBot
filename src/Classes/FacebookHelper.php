@@ -6,7 +6,7 @@
  * Time: 11:47 PM
  */
 
-namespace FakepostBot;
+namespace BotPostBot;
 
 //require_once __DIR__ . '../../../../vendor/autoload.php';
 //require_once __DIR__ . '/../resources/secrets.php';
@@ -78,7 +78,7 @@ class FacebookHelper extends DataLogger
                     if (isset($from)) {
                         $name = $from->getField('name');
                         if (isset($name)) {
-//                            $blacklist = array('FakepostBot 7245', 'ExampleApp');
+//                            $blacklist = array('BotPostBot 7245', 'ExampleApp');
                             $blacklist = array();
                             if (!in_array($name, $blacklist)) {
                                 $text = $graphNode->getField('message');

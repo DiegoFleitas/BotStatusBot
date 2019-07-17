@@ -6,7 +6,7 @@
  * Time: 5:11 PM
  */
 
-namespace FakepostBot;
+namespace BotPostBot;
 
 use Stringy\Stringy as S;
 

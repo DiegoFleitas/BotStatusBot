@@ -1,6 +1,6 @@
 {
-    "name": "diegofleitas/fakepostbot",
-    "description": "FakePostBot",
+    "name": "diegofleitas/BotPostBot",
+    "description": "BotPostBot",
     "authors": [
         {
             "name": "Diego Fleitas"
@@ -24,12 +24,12 @@
     },
     "autoload": {
       "psr-4": {
-        "FakepostBot\\": "src/"
+        "BotPostBot\\": "src/"
       }
     },
     "autoload-dev": {
       "psr-4": {
-        "FakepostBot\\Tests\\": "tests/"
+        "BotPostBot\\Tests\\": "tests/"
       }
     },
     "suggest": {

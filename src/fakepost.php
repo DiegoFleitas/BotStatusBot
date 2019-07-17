@@ -36,15 +36,15 @@ $bot = 'US Election Bot 1776';
 //$bot = 'EmojiBot 101';
 //$bot = 'CountryBot 0208';
 
-$dt = new FakepostBot\DataLogger();
+$dt = new BotPostBot\DataLogger();
 $dt->logdata($bot);
 
-$Mimick = new FakepostBot\MimickBot();
+$Mimick = new BotPostBot\MimickBot();
 $result = $Mimick->fakePost($bot);
 
 // Make post with any random image
 if (!empty($result)) {
-    $FB_helper = new FakepostBot\FacebookHelper();
+    $FB_helper = new BotPostBot\FacebookHelper();
     $fb = $FB_helper->init($_APP_ID, $_APP_SECRET, $_ACCESS_TOKEN_DEBUG);
 
     $message = 'posting...';

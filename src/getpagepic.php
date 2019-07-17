@@ -131,9 +131,9 @@ $data = array(
 //    118 => array('335729730128446', 'WordpostBot'),
 );
 
-$FB_helper = new FakepostBot\FacebookHelper();
+$FB_helper = new BotPostBot\FacebookHelper();
 $fb = $FB_helper->init($_APP_ID, $_APP_SECRET, $_ACCESS_TOKEN_DEBUG);
-$dt = new FakepostBot\DataLogger();
+$dt = new BotPostBot\DataLogger();
 
 foreach ($data as $entry) {
     $page_id = $entry[0];
@@ -146,9 +146,9 @@ foreach ($data as $entry) {
 
     try {
         $pic_url = $FB_helper->getPicture($fb, $page_id);
-        $IMAGE_PATH_NEW = 'C:\Users\Diego\PhpstormProjects\FakePostBot\tests\bot images\\'.$bot.'.png';
+        $IMAGE_PATH_NEW = 'C:\Users\Diego\PhpstormProjects\BotPostBot\tests\bot images\\'.$bot.'.png';
 
-        $ImgFetcher = new FakepostBot\ImageFetcher();
+        $ImgFetcher = new BotPostBot\ImageFetcher();
         $isSuccess = $ImgFetcher->saveImageLocally($pic_url, $IMAGE_PATH_NEW, true);
         if (!$isSuccess) {
             $message = $bot.' failed.';

@@ -6,7 +6,7 @@
  * Time: 9:45 PM
  */
 
-namespace FakepostBot;
+namespace BotPostBot;
 
 use Intervention\Image\ImageManagerStatic as Image;
 
@@ -360,7 +360,7 @@ class ImageFetcher extends DataLogger
         $filename = $style_pool[$rnd_index];
         $style = substr($filename, 0, -4);
         $style = str_replace('_', ' ', $style);
-        $path = 'C:\Users\Diego\PhpstormProjects\FakePostBot\src\resources\textures\\'.$filename;
+        $path = 'C:\Users\Diego\PhpstormProjects\BotPostBot\src\resources\textures\\'.$filename;
         return [
             'name' => $style,
             'path'  => $path
@@ -449,7 +449,7 @@ class ImageFetcher extends DataLogger
 
     public function localSourceWikiArt()
     {
-        $string = file_get_contents('C:\Users\Diego\PhpstormProjects\FakePostBot\src\resources\wikiart.json');
+        $string = file_get_contents('C:\Users\Diego\PhpstormProjects\BotPostBot\src\resources\wikiart.json');
         $json = json_decode($string, true);
         $rnd_index = mt_rand(0, count($json) - 1);
         $entry = $json[$rnd_index];

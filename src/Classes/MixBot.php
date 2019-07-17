@@ -6,7 +6,7 @@
  * Time: 12:34 PM
  */
 
-namespace FakepostBot;
+namespace BotPostBot;
 
 require_once __DIR__ . '\DataLogger.php';
 require_once __DIR__ . '\MimickBot.php';
@@ -204,9 +204,9 @@ class MixBot extends DataLogger
                     /** @var \Intervention\Image\Image $img */
                     $img1 = Image::make($image_path1);
 
-                    $path_to_save = 'C:\Users\Diego\PhpstormProjects\FakePostBot\src\resources\newBot\mixed_'.$strategy.'.png';
+                    $path_to_save = 'C:\Users\Diego\PhpstormProjects\BotPostBot\src\resources\newBot\mixed_'.$strategy.'.png';
                     // apply filter and save result to mixed
-                    $img1->filter(new \FakepostBot\TransparencyFilter($image_path2, $path_to_save));
+                    $img1->filter(new \BotPostBot\TransparencyFilter($image_path2, $path_to_save));
 
                     $image = $path_to_save;
                     $success = true;
@@ -243,9 +243,9 @@ class MixBot extends DataLogger
                     /** @var \Intervention\Image\Image $img */
                     $img1 = Image::make($image_path1);
 
-                    $path_to_save = 'C:\Users\Diego\PhpstormProjects\FakePostBot\src\resources\newBot\mixed_'.$strategy.'.png';
+                    $path_to_save = 'C:\Users\Diego\PhpstormProjects\BotPostBot\src\resources\newBot\mixed_'.$strategy.'.png';
                     // apply filter and save result to mixed
-                    $img1->filter(new \FakepostBot\TransparencyFilter($image_path2, $path_to_save));
+                    $img1->filter(new \BotPostBot\TransparencyFilter($image_path2, $path_to_save));
 
                     $image = $path_to_save;
                     $success = true;

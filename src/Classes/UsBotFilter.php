@@ -6,7 +6,7 @@
  * Time: 12:56 AM
  */
 
-namespace FakepostBot;
+namespace BotPostBot;
 
 use Intervention\Image\ImageManagerStatic as Image;
 
@@ -124,7 +124,7 @@ class UsBotFilter implements \Intervention\Image\Filters\FilterInterface
         $blues = [];
         $reds = [];
         foreach ($this->POLL as $key => $state_res) {
-            $path2 = 'C:\Users\Diego\PhpstormProjects\FakePostBot\src\resources\us_election\\'.$key.'.png';
+            $path2 = 'C:\Users\Diego\PhpstormProjects\BotPostBot\src\resources\us_election\\'.$key.'.png';
             /** @var \Intervention\Image\Image $img2 */
             $img2 = Image::make($path2);
 
@@ -140,7 +140,7 @@ class UsBotFilter implements \Intervention\Image\Filters\FilterInterface
             $image->insert($img2);
         }
 
-        $barpath = 'C:\Users\Diego\PhpstormProjects\FakePostBot\src\resources\us_election\bar.png';
+        $barpath = 'C:\Users\Diego\PhpstormProjects\BotPostBot\src\resources\us_election\bar.png';
         /** @var \Intervention\Image\Image $bar */
         $bar = Image::make($barpath);
         $image->insert($bar);
@@ -168,7 +168,7 @@ class UsBotFilter implements \Intervention\Image\Filters\FilterInterface
         $text = $this->CANDIDATE1;
         $image->text($text, 715, 30, function ($font) {
             /** @var \Intervention\Image\Imagick\Font $font */
-            $font->file('C:\Users\Diego\PhpstormProjects\FakePostBot\src\resources\fonts\lucida');
+            $font->file('C:\Users\Diego\PhpstormProjects\BotPostBot\src\resources\fonts\lucida');
             $font->size(20);
             $font->color('#000000');
         });
@@ -176,12 +176,12 @@ class UsBotFilter implements \Intervention\Image\Filters\FilterInterface
         $text2 = $this->CANDIDATE2;
         $image->text($text2, 715, 55, function ($font) {
             /** @var \Intervention\Image\Imagick\Font $font */
-            $font->file('C:\Users\Diego\PhpstormProjects\FakePostBot\src\resources\fonts\lucida');
+            $font->file('C:\Users\Diego\PhpstormProjects\BotPostBot\src\resources\fonts\lucida');
             $font->size(20);
             $font->color('#000000');
         });
 
-        $yearpath = 'C:\Users\Diego\PhpstormProjects\FakePostBot\src\resources\us_election\year.png';
+        $yearpath = 'C:\Users\Diego\PhpstormProjects\BotPostBot\src\resources\us_election\year.png';
         /** @var \Intervention\Image\Image $year */
         $year_template = Image::make($yearpath);
         $image->insert($year_template);
@@ -189,14 +189,14 @@ class UsBotFilter implements \Intervention\Image\Filters\FilterInterface
         $year = $this->YEAR;
         $image->text($year, 770, 675, function ($font) {
             /** @var \Intervention\Image\Imagick\Font $font */
-            $font->file('C:\Users\Diego\PhpstormProjects\FakePostBot\src\resources\fonts\impact.ttf');
+            $font->file('C:\Users\Diego\PhpstormProjects\BotPostBot\src\resources\fonts\impact.ttf');
             $font->size(70);
             $font->color('#000000');
 //            $font->align('right');
 //            $font->valign('bottom');
         });
 
-        $path3 = 'C:\Users\Diego\PhpstormProjects\FakePostBot\src\resources\us_election\text.png';
+        $path3 = 'C:\Users\Diego\PhpstormProjects\BotPostBot\src\resources\us_election\text.png';
         /** @var \Intervention\Image\Image $img3 */
         $img3 = Image::make($path3);
         $image->insert($img3);
