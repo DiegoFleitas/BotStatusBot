@@ -6,7 +6,7 @@
  * Time: 3:44 PM
  */
 
-namespace BotPostBot;
+namespace BotStatusBot;
 
 class DataLogger
 {

@@ -6,7 +6,7 @@
  * Time: 8:47 PM
  */
 
-namespace BotPostBot\Tests;
+namespace BotStatusBot\Tests;
 
 use PHPUnit\Framework\TestCase;
 
@@ -28,7 +28,7 @@ class MixTest extends TestCase
             'CountryBot 0208'
         ];
 
-        $Mimick = new \BotPostBot\MimickBot();
+        $Mimick = new \BotStatusBot\MimickBot();
 
         foreach ($bot_pool as $bot) {
             $result = $Mimick->fakePost($bot);
@@ -76,7 +76,7 @@ class MixTest extends TestCase
 //        shuffle($bot_pool);
 
 
-        $Mimick = new \BotPostBot\MimickBot();
+        $Mimick = new \BotStatusBot\MimickBot();
 
         $counter = 0;
         foreach ($bot_pool as $key => $bot1) {
@@ -91,7 +91,7 @@ class MixTest extends TestCase
                 $bot1_info = $Mimick->getBotInfo($bot1);
                 $bot2_info = $Mimick->getBotInfo($bot2);
 
-                $MixBot = new \BotPostBot\MixBot();
+                $MixBot = new \BotStatusBot\MixBot();
                 $strat = $MixBot->getMixingStrategy($bot1_info, $bot2_info);
                 $message = $bot1.' mixed with '.$bot2.' using: '.$strat;
 

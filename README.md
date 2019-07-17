@@ -1,4 +1,4 @@
-# BotPostBot
+# BotStatusBot
 Facebook Bot using SDK v5 for PHP
 
 ## How it works

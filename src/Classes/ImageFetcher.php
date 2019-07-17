@@ -6,7 +6,7 @@
  * Time: 9:45 PM
  */
 
-namespace BotPostBot;
+namespace BotStatusBot;
 
 use Intervention\Image\ImageManagerStatic as Image;
 

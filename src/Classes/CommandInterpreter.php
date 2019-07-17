@@ -6,7 +6,7 @@
  * Time: 5:11 PM
  */
 
-namespace BotPostBot;
+namespace BotStatusBot;
 
 use Stringy\Stringy as S;
 

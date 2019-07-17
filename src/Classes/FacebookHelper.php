@@ -6,7 +6,7 @@
  * Time: 11:47 PM
  */
 
-namespace BotPostBot;
+namespace BotStatusBot;
 
 //require_once __DIR__ . '../../../../vendor/autoload.php';
 //require_once __DIR__ . '/../resources/secrets.php';
@@ -78,7 +78,7 @@ class FacebookHelper extends DataLogger
                     if (isset($from)) {
                         $name = $from->getField('name');
                         if (isset($name)) {
-//                            $blacklist = array('BotPostBot 7245', 'ExampleApp');
+//                            $blacklist = array('BotStatusBot 7245', 'ExampleApp');
                             $blacklist = array();
                             if (!in_array($name, $blacklist)) {
                                 $text = $graphNode->getField('message');
@@ -369,5 +369,17 @@ class FacebookHelper extends DataLogger
         $headers = $response->getHeaders();
 
         return $headers['Location'];
+    }
+
+    public function getPageData($fb, $page_id)
+    {
+        // first we get the pictures
+        /** @var $response \Facebook\FacebookResponse */
+        $response = $fb->get($page_id.'/locations');
+
+        /** @var $graphEdge \Facebook\GraphNodes\GraphEdge */
+        $graphEdge = $response->getGraphEdge();
+        var_dump($graphEdge->asArray());
+
     }
 }

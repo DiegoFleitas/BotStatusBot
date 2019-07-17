@@ -196,20 +196,11 @@ $bot_pool = [
     'WordpostBot'
 ];
 
-$dt = new BotPostBot\DataLogger();
-
-$result = array(
-    'image' => '',
-    'title' => '',
-    'bot_link' => '',
-    'comment' => ''
-);
+$dt = new BotStatusBot\DataLogger();
 
 // Make post with any random image
-$FB_helper = new BotPostBot\FacebookHelper();
+$FB_helper = new BotStatusBot\FacebookHelper();
 $fb = $FB_helper->init($_APP_ID, $_APP_SECRET, $_ACCESS_TOKEN_DEBUG);
 
-$message = 'posting...';
-$dt->logdata($message);
 
-$FB_helper->newPost($fb, $result['image'], $result['title'], $result['bot_link'], $result['comment']);
+$FB_helper->getPageData($fb, '281788746015448');
