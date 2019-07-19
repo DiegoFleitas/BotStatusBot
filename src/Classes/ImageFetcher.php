@@ -13,10 +13,6 @@ use Intervention\Image\ImageManagerStatic as Image;
 class ImageFetcher extends DataLogger
 {
 
-
-
-
-
     /**
      * @param string $url
      * @param string $path
@@ -44,11 +40,11 @@ class ImageFetcher extends DataLogger
 
         if ($err) {
             $message = 'SaveImage cURL Error #:' . $err.' url:'.$url.' response:'.$response;
-            $this->logdata('['.__METHOD__.' ERROR] '.__FILE__.':'.__LINE__.' '.$message, 1);
+            $this->logdata('['.__METHOD__.' ERROR] '.__FILE__.':'.__LINE__.' '.$message, 0);
         } else {
             if ($httpcode != '200') {
                 $message =  'SaveImage Http code error #:' . $httpcode.' url:'.$url.' response:'.$response;
-                $this->logdata('['.__METHOD__.' ERROR] '.__FILE__.':'.__LINE__.' '.$message, 1);
+                $this->logdata('['.__METHOD__.' ERROR] '.__FILE__.':'.__LINE__.' '.$message, 0);
             }
 
             // optimum res for facebook

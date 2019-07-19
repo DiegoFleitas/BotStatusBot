@@ -368,7 +368,10 @@ class FacebookHelper extends DataLogger
 
         $headers = $response->getHeaders();
 
-        return $headers['Location'];
+        return array(
+            'link' => $headers['Location'],
+            'extension' => $headers['Content-Type']
+        );
     }
 
     public function getPageData($fb, $page_id)
@@ -380,6 +383,73 @@ class FacebookHelper extends DataLogger
         /** @var $graphEdge \Facebook\GraphNodes\GraphEdge */
         $graphEdge = $response->getGraphEdge();
         var_dump($graphEdge->asArray());
+
+    }
+
+    public function getPageIdFromLink($link) {
+
+        $url = 'https://findmyfbid.com/?__amp_source_origin=https%3A%2F%2Ffindmyfbid.com';
+
+        $curl = curl_init();
+
+        $data = "-----------------------------12207140318114
+Content-Disposition: form-data; name='url'
+
+".$link."
+-----------------------------12207140318114
+Content-Disposition: form-data; name=''
+
+Find numeric ID →
+-----------------------------12207140318114--
+";
+        $content_length = strlen($data);
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => $url,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 120,
+            CURLOPT_CUSTOMREQUEST => "POST",
+            CURLINFO_HEADER_OUT => true,
+            CURLOPT_POSTFIELDS => $data,
+            CURLOPT_HTTPHEADER => array(
+                'Host: findmyfbid.com',
+                'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:69.0) Gecko/20100101 Firefox/69.0',
+                'Accept: application/json',
+                'Accept-Language: en-US,en;q=0.5',
+                'Accept-Encoding: gzip, deflate, br',
+                'Referer: https://findmyfbid.com/',
+                'AMP-Same-Origin: true',
+                'Content-Type: multipart/form-data; boundary=---------------------------12207140318114',
+                'Origin: https://findmyfbid.com',
+                'Content-Length: '.$content_length,
+                'Connection: keep-alive'
+            ),
+        ));
+
+        $response = curl_exec($curl);
+        $httpcode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+        $headers = curl_getinfo($curl, CURLINFO_HEADER_OUT);
+        $err = curl_error($curl);
+
+        curl_close($curl);
+
+        if ($err) {
+            $message = ' cURL Error #:' . $err.'  request headers: '.$headers.'  url: '.$link.' response: '.$response;
+            $this->logdata('['.__METHOD__.' ERROR] '.__FILE__.':'.__LINE__.' '.$message, 1);
+        } else {
+            if ($httpcode != '200') {
+                $message =  ' Http code error #:' . $httpcode.'  request headers: '.$headers.'  url: '.$link.' response: '.$response;
+                $this->logdata('['.__METHOD__.' ERROR] '.__FILE__.':'.__LINE__.' '.$message, 1);
+            }
+            // caveman way to avoid scientific notation since its a big number
+            if (!empty($response)) {
+                $aux = str_replace('{"id":','', $response);
+                return str_replace('}','', $aux);
+            }
+        }
+        return '';
 
     }
 }
