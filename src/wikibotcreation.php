@@ -10,7 +10,7 @@ require __DIR__ .'/../vendor/autoload.php';
 require_once 'resources/secrets.php';
 
 
-//$img_n2_link_image_repo_desc = array(
+$img_n2_link_image_repo_desc = array(
 //    -1 => array('TestBot', 'TestBot', 'https://www.facebook.com/AlternateTimelineBot/', 'https://scontent.fbne3-1.fna.fbcdn.net/v/t1.0-9/59825539_1388580504618223_3518171857213718528_n.jpg?_nc_cat=107&_nc_eui2=AeHQIBC7cHVTjLHhj_2gLrKB0CLICnSriql6o3jC5neUpbKBxHa-lnpje73wmOtXjHpORyhIyUEwhymyspKZU8_qm_DZ0Qwp-RcUxBEdX2isug&_nc_ht=scontent.fbne3-1.fna&oh=f765016e72bb3a4b09ac8ee907860efe&oe=5D6A0523', 'https://github.com/dazziX/alternate-timeline-bot', 'test description'),
 //    0 => array('AlternateTimeline-Bot', 'AlternateTimeline-Bot', 'https://www.facebook.com/AlternateTimelineBot/', 'https://scontent.fbne3-1.fna.fbcdn.net/v/t1.0-9/59825539_1388580504618223_3518171857213718528_n.jpg?_nc_cat=107&_nc_eui2=AeHQIBC7cHVTjLHhj_2gLrKB0CLICnSriql6o3jC5neUpbKBxHa-lnpje73wmOtXjHpORyhIyUEwhymyspKZU8_qm_DZ0Qwp-RcUxBEdX2isug&_nc_ht=scontent.fbne3-1.fna&oh=f765016e72bb3a4b09ac8ee907860efe&oe=5D6A0523', 'https://github.com/dazziX/alternate-timeline-bot', '#N/A'),
 //    1 => array('Arby n the Chief Roflpostbot 1337', 'Arby \'n\' the Chief: Roflpostbot 1337', 'https://www.facebook.com/mairoflpostbotgoesmeme/', 'https://scontent.fbne2-1.fna.fbcdn.net/v/t1.0-9/60282132_2050858711882081_2501139467130109952_o.jpg?_nc_cat=111&_nc_oc=AQmbNqZA_IbE_ZDCFUacbzZz6ZdYByQpb6PQ4b7MEkqGaGOWXONOpzi_0mwy6N_IPpk&_nc_ht=scontent.fbne2-1.fna&oh=1414c64a2353ad69906fc5f25d450509&oe=5D8EC666', '', '#N/A'),
@@ -200,9 +200,8 @@ require_once 'resources/secrets.php';
 //    185 => array('Why Are You Bot', 'Why Are You Bot?', 'https://www.facebook.com/YRUBot/', 'https://scontent.fbne3-1.fna.fbcdn.net/v/t1.0-9/54519876_830682167283961_2227205692782018560_n.jpg?_nc_cat=101&_nc_ht=scontent.fbne3-1.fna&oh=cfc4dc73ecadb58e6c6a32ef709fcde7&oe=5D465FCA', '', '#N/A'),
 //    186 => array('Winter War Bot 306', 'Winter War Bot 306', 'https://www.facebook.com/1326276020857811/', 'https://scontent.fbne3-1.fna.fbcdn.net/v/t1.0-9/57484927_1326276820857731_5672247571343474688_n.jpg?_nc_cat=111&_nc_ht=scontent.fbne3-1.fna&oh=62dab8bdcf28af8aa4c9e51553784864&oe=5D2C4BDF', '', '#N/A'),
 //    187 => array('Wishpostbot $2.000', 'Wishpostbot $2.000', 'https://www.facebook.com/Wishpostbot2000', 'https://scontent.fbne2-1.fna.fbcdn.net/v/t1.0-9/61563974_836645966689366_1208668569496190976_n.png?_nc_cat=103&_nc_eui2=AeHId1iCe3Fli4aBJKsrUipIC5Xu-pw9Ep32AoiPhDc8umRipRaHrw-IziJ8WDz9Dc2fDiN409cmUoBn7iFri4BWmlQMxF38AHl1Ahw9IXXlOQ&_nc_ht=scontent.fbne2-1.fna&oh=cbc5f9520e8825da0c7c74cfd402a6cc&oe=5D927869', '', '#N/A'),
-//);
+);
 
-$img_n2_link_image_repo_desc = array();
 
 $dt = new BotStatusBot\DataLogger();
 
@@ -235,7 +234,7 @@ foreach ($img_n2_link_image_repo_desc as $key => $entry) {
         'creation' => ''
     );
 
-    $built_data = $WH->buildBotDataForArticle($botdata, 'bot');
+    $built_data = $WH->buildDataForArticle($botdata, 'bot');
 
 //    if($key > 10) {
 //        return;

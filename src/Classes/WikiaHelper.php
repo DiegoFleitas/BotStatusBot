@@ -301,61 +301,91 @@ class WikiaHelper extends DataLogger
 
     }
 
-    public function buildBotDataForArticle($botdata, $type) {
+    public function buildDataForArticle($data, $type) {
 
-        $aux_botminlink = '';
-        if (!empty($botdata['botmins'])) {
-            $aux_botminlink = '[['.$botdata['botmins'].']]';
-        }
-        $bot_description = '';
-        if ($botdata['description'] !== '#N/A') {
-            $bot_description = $botdata['description'];
-        }
-
-        $bot_infobox = '{{Bot_Infobox_Template
-|botname = '.$botdata['botname'].'
-|status = '.$botdata['status'].'
-|facebook_url = ['.$botdata['facebook_url'].' '.$botdata['botname'].']
-|image = '.$botdata['image'].'
-|imagecaption = '.$botdata['imagecaption'].'
-|botmins = '.$aux_botminlink.'
-|type = '.$botdata['type'].'
-|creation = '.$botdata['creation'].'
-}}
-';
-        $categorization = '';
         if ($type == 'bot') {
+            $aux_botminlink = '';
+            if (!empty($data['botmins'])) {
+                $aux_botminlink = '[['.$data['botmins'].']]';
+            }
+            $bot_description = '';
+            if ($data['description'] !== '#N/A') {
+                $bot_description = $data['description'];
+            }
+
+            $bot_infobox = '{{Bot_Infobox_Template '.
+            '|botname = '.$data['botname'].
+            '|status = '.$data['status'].
+            '|facebook_url = ['.$data['facebook_url'].' '.$data['botname'].']'.
+            '|image = '.$data['image'].
+            '|imagecaption = '.$data['imagecaption'].
+            '|botmins = '.$aux_botminlink.
+            '|type = '.$data['type'].
+            '|creation = '.$data['creation'].
+            '}}';
+
             $categorization = '[[Category:Facebook Bots]]';
-        }
-        switch ($botdata['type']) {
-            case 'Text Bot':
-                $categorization .= '[[Category:Text Bots]]';
-                break;
-            case 'Video Bot':
-                $categorization .= '[[Category:Video Bots]]';
-                break;
-            case 'Image Bots':
-                $categorization .= '[[Category:Image Bots]]';
-                break;
-        }
-        if ($botdata['status'] == 'Dead') {
-            $categorization .= '[[Category:Dead Bots]]';
+
+            switch ($data['type']) {
+                case 'Text Bot':
+                    $categorization .= '[[Category:Text Bots]]';
+                    break;
+                case 'Video Bot':
+                    $categorization .= '[[Category:Video Bots]]';
+                    break;
+                case 'Image Bots':
+                    $categorization .= '[[Category:Image Bots]]';
+                    break;
+            }
+            if ($data['status'] == 'Dead') {
+                $categorization .= '[[Category:Dead Bots]]';
+            }
+
+            $infobox = urlencode($bot_infobox);
+            $footer = urlencode('{{Navbox/Bots}}'.$categorization);
+            $name = urlencode($data['botname']);
+            $description = urlencode($bot_description);
+
+        } elseif ($type == 'botmin') {
+
+            $bots = explode(';', $data['description']);
+            $desc = $data['botmin'].' is one of the Bot Appreciation Society\'s many bot admins and the creator of ';
+            foreach ($bots as $key => $bot) {
+                if ($key == 0) {
+                    $desc .= '[['.$bot.']]';
+                } elseif ($key == count($bots) - 1) {
+                    $desc .= ' and [['.$bot.']]';
+                } else {
+                    $desc .= ' ,[['.$bot.']]';
+                }
+            }
+
+            $botmin_infobox = '{{Infobox_character|name = '.$data['botmin'].
+            '|image = '.$data['botmin'].'.png'.
+            '|imagecaption = '.$data['botmin'].' current Discord avatar'.
+            '|aliases = '.
+            '|affiliation = The Bot Appreciation Society'.
+            '|gender = '.
+            '}}';
+
+            $categorization = '[[Category:Bot Admins]]';
+
+            $infobox = urlencode($botmin_infobox);
+            $footer = urlencode('{{Navbox/Bot Admins}}'.$categorization);
+            $name = urlencode($data['botmin']);
+            $description = urlencode($desc);
         }
 
-        $bot_infobox = urlencode($bot_infobox);
-        $bot_footer = urlencode('{{Navbox/Bots}}'.$categorization);
-        $bot_name = urlencode($botdata['botname']);
-        $bot_description = urlencode($bot_description);
 
         return array (
-            'infobox' => $bot_infobox,
-            'botname' => $bot_name,
-            'description' => $bot_description,
-            'footer' => $bot_footer
+            'infobox' => $infobox,
+            'name' => $name,
+            'description' => $description,
+            'footer' => $footer
         );
     }
 
-    public function automatedBotArticle($botdata_article, $force_creation = false, $clean_article = false) {
+    public function automatedArticle($data_article, $force_creation = false, $clean_article = false) {
 
         $cookie_data = $this->getDefaultCookies();
         $edit_token = $this->getEditToken();
@@ -368,10 +398,10 @@ class WikiaHelper extends DataLogger
 
         $bot_useragent = 'BASBOT/0.0 (https://botappreciationsociety.fandom.com/BASBOT/; diegoflekap2@gmail.com) UsedBaseLibrary/0.0';
 
-        $bot_infobox = $botdata_article['infobox'];
-        $bot_footer = $botdata_article['footer'];
-        $page_name = $botdata_article['botname'];
-        $description = $botdata_article['description'];
+        $infobox = $data_article['infobox'];
+        $footer = $data_article['footer'];
+        $page_name = $data_article['name'];
+        $description = $data_article['description'];
 
         $article_text = '';
         // This without append nor prepend will override the content if the article already exists
@@ -379,12 +409,12 @@ class WikiaHelper extends DataLogger
             $article_text = '&text='.$description;
         }
         $prependtext = '';
-        if (!empty($bot_infobox)) {
-            $prependtext = "&prependtext=".$bot_infobox;
+        if (!empty($infobox)) {
+            $prependtext = "&prependtext=".$infobox;
         }
         $appendtext = '';
-        if (!empty($bot_infobox)) {
-            $appendtext = "&appendtext=".$bot_footer;
+        if (!empty($infobox)) {
+            $appendtext = "&appendtext=".$footer;
         }
 
         if ($clean_article) {
