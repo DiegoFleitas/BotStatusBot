@@ -200,6 +200,8 @@ $img_n2_link_image_repo_desc = array(
 //    185 => array('Why Are You Bot', 'Why Are You Bot?', 'https://www.facebook.com/YRUBot/', 'https://scontent.fbne3-1.fna.fbcdn.net/v/t1.0-9/54519876_830682167283961_2227205692782018560_n.jpg?_nc_cat=101&_nc_ht=scontent.fbne3-1.fna&oh=cfc4dc73ecadb58e6c6a32ef709fcde7&oe=5D465FCA', '', '#N/A'),
 //    186 => array('Winter War Bot 306', 'Winter War Bot 306', 'https://www.facebook.com/1326276020857811/', 'https://scontent.fbne3-1.fna.fbcdn.net/v/t1.0-9/57484927_1326276820857731_5672247571343474688_n.jpg?_nc_cat=111&_nc_ht=scontent.fbne3-1.fna&oh=62dab8bdcf28af8aa4c9e51553784864&oe=5D2C4BDF', '', '#N/A'),
 //    187 => array('Wishpostbot $2.000', 'Wishpostbot $2.000', 'https://www.facebook.com/Wishpostbot2000', 'https://scontent.fbne2-1.fna.fbcdn.net/v/t1.0-9/61563974_836645966689366_1208668569496190976_n.png?_nc_cat=103&_nc_eui2=AeHId1iCe3Fli4aBJKsrUipIC5Xu-pw9Ep32AoiPhDc8umRipRaHrw-IziJ8WDz9Dc2fDiN409cmUoBn7iFri4BWmlQMxF38AHl1Ahw9IXXlOQ&_nc_ht=scontent.fbne2-1.fna&oh=cbc5f9520e8825da0c7c74cfd402a6cc&oe=5D927869', '', '#N/A'),
+
+    188 => array('A random doggo every half an hour', 'A random doggo every half an hour', 'https://www.facebook.com/randomdoggohour/', 'https://scontent.fbne2-1.fna.fbcdn.net/v/t1.0-9/61563974_836645966689366_1208668569496190976_n.png?_nc_cat=103&_nc_eui2=AeHId1iCe3Fli4aBJKsrUipIC5Xu-pw9Ep32AoiPhDc8umRipRaHrw-IziJ8WDz9Dc2fDiN409cmUoBn7iFri4BWmlQMxF38AHl1Ahw9IXXlOQ&_nc_ht=scontent.fbne2-1.fna&oh=cbc5f9520e8825da0c7c74cfd402a6cc&oe=5D927869', '', '#N/A'),
 );
 
 
@@ -245,7 +247,7 @@ foreach ($img_n2_link_image_repo_desc as $key => $entry) {
         sleep(3);
     }
 
-    $success = $WH->automatedBotArticle($built_data, FALSE, FALSE);
+    $success = $WH->automatedArticle($built_data, FALSE, FALSE);
     if ($success) {
         $dt->logdata($botname.' article created');
     } else {

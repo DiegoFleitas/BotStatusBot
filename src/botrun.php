@@ -204,3 +204,9 @@ $fb = $FB_helper->init($_APP_ID, $_APP_SECRET, $_ACCESS_TOKEN_DEBUG);
 
 
 $FB_helper->getPageData($fb, '281788746015448');
+
+
+//https://botappreciationsociety.fandom.com/api.php?action=query&prop=revisions&rvprop=content&format=xmlfm&titles=FactpostBot4286&rvsection=0
+//https://botappreciationsociety.fandom.com/api.php?action=query&prop=categories&titles=PaintBot
+//https://botappreciationsociety.fandom.com/api.php?action=query&list=categorymembers&cmtitle=Category:Facebook%20Bots&cmlimit=500
+//https://botappreciationsociety.fandom.com/api/v1/Articles/AsSimpleJson?id=225

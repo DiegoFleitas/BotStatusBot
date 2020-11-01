@@ -274,7 +274,7 @@ class WikiaHelper extends DataLogger
         }
 
         if ($tags == null) {
-            $message = 'No bot data found';
+            $message = 'No extra bot data found';
             $this->logdata('['.__METHOD__.' ERROR] '.__FILE__.':'.__LINE__.' '.$message, 0);
             return [
                 'type'  => '',
@@ -290,7 +290,7 @@ class WikiaHelper extends DataLogger
         }
 
         $status = 'Active';
-        if(in_array('Dead', $tags)) {
+        if (in_array('Dead', $tags)) {
             $status = 'Dead';
         }
 
