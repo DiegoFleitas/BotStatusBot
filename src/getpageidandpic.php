@@ -429,7 +429,7 @@ $fb = $FB_helper->init($_APP_ID, $_APP_SECRET, $_ACCESS_TOKEN_DEBUG);
 $dt = new BotStatusBot\DataLogger();
 
 // open csv
-$file = fopen("bot_ids.csv","w");
+$file = fopen("resources/bot_ids.csv","w");
 fputcsv($file, ["bot", "image"]);
 
 //foreach ($aux_id_name as $entry) {

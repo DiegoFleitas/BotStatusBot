@@ -307,7 +307,7 @@ $client->setApplicationName($_GOOGLE_APPNAME);
 $client->setDeveloperKey($_GOOGLE_DEVKEY);
 
 // open csv
-$file = fopen("bot_images3.csv","w");
+$file = fopen("resources/bot_images3.csv","w");
 fputcsv($file, ["bot", "image"]);
 
 // get images and misc
