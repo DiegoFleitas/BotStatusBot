@@ -7,7 +7,7 @@ Soon
 
 ### Contributing
 
-Fork the repo, this one is not currently being mantained.
+Fork the repo, this one is not currently being maintained.
 
 ## Acknowledgments
 
