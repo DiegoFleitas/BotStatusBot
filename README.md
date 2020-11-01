@@ -1,13 +1,13 @@
 # BotStatusBot
-Wikia Bot to automate Wikia bot artcles
+Code from the [BASBOT](https://botappreciationsociety.fandom.com/wiki/User:BASBOT). A Wikia Bot to automate Wikia bot articles
 
 ## How it works
 
-This is the code from the [BASBOT](https://botappreciationsociety.fandom.com/wiki/User:BASBOT) 
+Soon
 
 ### Contributing
 
-Fork the repo, this one is not currently being mantained
+Fork the repo, this one is not currently being mantained.
 
 ## Acknowledgments
 
