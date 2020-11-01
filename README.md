@@ -1,5 +1,5 @@
 # Bot Appreciation Society Bot
-Code from the [BASBOT](https://botappreciationsociety.fandom.com/wiki/User:BASBOT). A Wikia Bot to automate the creation of BAS Wikia bot articles.
+Code from the [BASBOT](https://botappreciationsociety.fandom.com/wiki/User:BASBOT). A Wikia Bot to automate the creation of [BAS Wikia](https://botappreciationsociety.fandom.com/wiki/The_Bot_Appreciation_Society_Wiki) bot articles.
 
 ## How it works
 
